@@ -16,18 +16,18 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // <---------------- Session ---------------->
-// Configure and link a session object with the sequelize store
-const sessOptions = {
-  secret: "Super secret secret",
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize,
-  }),
-};
-// Add express-session and store as Express.js middleware
-app.use(session(sessOptions));
+// // Configure and link a session object with the sequelize store
+// const sessOptions = {
+//   secret: "Super secret secret",
+//   cookie: {},
+//   resave: false,
+//   saveUninitialized: true,
+//   store: new SequelizeStore({
+//     db: sequelize,
+//   }),
+// };
+// // Add express-session and store as Express.js middleware
+// app.use(session(sessOptions));
 
 // <---------------- MVC Template Engine ---------------->
 // Set up Handlebars.js engine with custom helpers

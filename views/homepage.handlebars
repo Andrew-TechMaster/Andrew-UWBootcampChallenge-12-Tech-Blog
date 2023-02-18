@@ -1,1 +1,17 @@
 <h1>Homepage Works!</h1>
+{{#each posts as |post| }}
+{{> post-card}}
+{{/each}}
+
+{{!-- <div class="card">
+    <div class="card-header">
+        Title...
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer class="blockquote-footer">Posted by <cite title="Source Title">Andrew</cite> on
+                5/8/2020</footer>
+        </blockquote>
+    </div>
+</div> --}}
