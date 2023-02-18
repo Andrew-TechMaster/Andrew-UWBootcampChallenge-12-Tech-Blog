@@ -23,6 +23,19 @@ nav a:hover {
   background-color: #abf7b1;
 }
 
+.navbar-nav button {
+  color: #3d1710;
+  background-color: #abf7b1;
+  position: absolute;
+  right: 2%;
+  top: 25%;
+}
+
+.navbar-nav button:hover {
+  color: #abf7b1;
+  background-color: #3d1710;
+}
+
 /* :root {
   --primary: #3d5852;
   --secondary: #86938f;
