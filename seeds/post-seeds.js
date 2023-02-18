@@ -11,6 +11,11 @@ const postData = [
     content: "Angular is another front-end framework...",
     user_id: 2,
   },
+  {
+    title: "React",
+    content: "React is another front-end framework...",
+    user_id: 2,
+  },
 ];
 
 const seedPost = () => Post.bulkCreate(postData);

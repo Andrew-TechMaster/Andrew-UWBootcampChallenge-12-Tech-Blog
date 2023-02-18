@@ -1,1 +1,42 @@
 <h1>Post Works!</h1>
+
+<div class="card text-center">
+    <div class="card-header">
+        {{!-- header --}}
+        {{title}}
+    </div>
+    <div class="card-body">
+        {{!-- <h5 class="card-title">Special title treatment</h5> --}}
+        <p class="card-text">{{content}}</p>
+    </div>
+    <div class="card-footer text-muted">
+        {{!-- footer --}}
+        Posted by <cite title="username">{{user.username}}</cite> on {{format_date date_created}}
+    </div>
+</div>
+
+{{#if comments}}
+<ul class="list-group">
+    <li class="list-group-item active">Comments</li>
+    {{#each comments as |comment| }}
+    <li class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{comment.content}}</h5>
+            <small> <span class="badge badge-primary badge-pill">Posted by <cite>{{comment.user.username}}</cite> on
+                    {{format_date
+                    comment.date_created}}</span></small>
+        </div>
+    </li>
+    {{/each}}
+</ul>
+{{/if}}
+
+<div class="input-group input-group-lg mt-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Comment</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">Add</button>
+    </div>
+</div>

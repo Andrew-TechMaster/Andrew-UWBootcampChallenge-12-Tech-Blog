@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const { Post, User } = require("../models");
+const { Post, User, Comment } = require("../models");
 
-// route to get all dishes
+// route to get all posts
 router.get("/", async (req, res) => {
   try {
     // Get all posts and JOIN with user data
@@ -15,6 +15,27 @@ router.get("/", async (req, res) => {
     // Pass serialized data and session flag into template
     // res.status(200).json(postData);
     res.render("homepage", { posts });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// route to get one post
+router.get("/post/:id", async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        { model: Comment, include: [{ model: User }] },
+        { model: User },
+      ],
+    });
+    if (!postData) {
+      res.status(404).json({ message: "No post with this id!" });
+      return;
+    }
+    const post = postData.get({ plain: true });
+    // res.status(200).json(postData);
+    res.render("post", { ...post });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -41,21 +62,6 @@ router.get("/login", (req, res) => {
 // Signup route
 router.get("/signup", (req, res) => {
   res.render("signup");
-});
-
-// route to get one post
-router.get("/post/:id", async (req, res) => {
-  try {
-    // const postData = await Post.findByPk(req.params.id);
-    // if (!postData) {
-    //   res.status(404).json({ message: "No post with this id!" });
-    //   return;
-    // }
-    // const post = postData.get({ plain: true });
-    res.render("post");
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
 
 module.exports = router;
