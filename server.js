@@ -29,10 +29,12 @@ const sessOptions = {
 // Add express-session and store as Express.js middleware
 app.use(session(sessOptions));
 
-// <---------------- MVC Engine ---------------->
+// <---------------- MVC Template Engine ---------------->
+// Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
 // Set Handlebars as the default template engine.
 app.engine("handlebars", hbs.engine);
+// Inform Express.js on which template engine to use
 app.set("view engine", "handlebars");
 
 // {==================== Middleware ====================}

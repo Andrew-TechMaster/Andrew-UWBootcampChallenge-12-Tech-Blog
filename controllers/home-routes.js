@@ -12,6 +12,7 @@ router.get("/", async (req, res) => {
 });
 
 // Dashboard route
+// Use withAuth middleware...
 router.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
