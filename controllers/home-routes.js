@@ -14,7 +14,10 @@ router.get("/", async (req, res) => {
 
     // Pass serialized data and session flag into template
     // res.status(200).json(postData);
-    res.render("homepage", { posts });
+    res.render("homepage", {
+      posts,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -35,6 +38,7 @@ router.get("/post/:id", async (req, res) => {
     }
     const post = postData.get({ plain: true });
     // res.status(200).json(postData);
+    // why need spread...post
     res.render("post", { ...post });
   } catch (err) {
     res.status(500).json(err);
@@ -42,18 +46,36 @@ router.get("/post/:id", async (req, res) => {
 });
 
 // Dashboard route
-// Use withAuth middleware...
-router.get("/dashboard", (req, res) => {
-  res.render("dashboard");
+// Use withAuth middleware to prevent access to route
+router.get("/dashboard", async (req, res) => {
+  res.render("dashboard", {
+    logged_in: req.session.logged_in,
+  });
+  // try {
+  //   // Find the logged in user based on the session ID
+  //   const userData = await User.findByPk(req.session.user_id, {
+  //     attributes: { exclude: ["password"] },
+  //     include: [{ model: Post }],
+  //   });
+
+  //   const user = userData.get({ plain: true });
+
+  //   res.render("dashboard", {
+  //     ...user,
+  //     logged_in: true,
+  //   });
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
 });
 
 // Login route
 router.get("/login", (req, res) => {
-  // // If the user is already logged in, redirect to the homepage
-  // if (req.session.loggedIn) {
-  //   res.redirect("/");
-  //   return;
-  // }
+  // If the user is already logged in, redirect to the homepage
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
 
   // Otherwise, render the 'login' template
   res.render("login");

@@ -1,19 +1,8 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-router.post("/", async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
+router.get("/login", async (req, res) => {
+  res.send("This is route /api/user/login");
 });
 
 router.post("/login", async (req, res) => {
@@ -30,9 +19,15 @@ router.post("/login", async (req, res) => {
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+      // console.log(userData);
+      // console.log(userData.dataValues.password);
+      // console.log(req.body.password);
+      // console.log(req.body.password === userData.dataValues.password);
+      // console.log(userData.checkPassword(req.body.password));
+
+      res.status(400).json({
+        message: `User:${userData.dataValues.username}, you have entered an incorrect password. Please try again.`,
+      });
       return;
     }
 
@@ -41,6 +36,21 @@ router.post("/login", async (req, res) => {
       req.session.logged_in = true;
 
       res.json({ user: userData, message: "You are now logged in!" });
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post("/signup", async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
     });
   } catch (err) {
     res.status(400).json(err);
