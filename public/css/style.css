@@ -36,10 +36,20 @@ nav a:hover {
   background-color: #3d1710;
 }
 
+.card-header {
+  color: #abf7b1;
+  background-color: #3d1710;
+}
+
 #create-new-post-btn {
   /* position: absolute;
   bottom: 3%;
   left: 45%; */
+}
+
+#user-dashboard-post-list {
+  color: white;
+  background-color: grey;
 }
 
 /* :root {

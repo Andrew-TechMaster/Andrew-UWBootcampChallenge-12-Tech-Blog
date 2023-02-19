@@ -1,11 +1,10 @@
-<ul class="list-group">
-    <a href="/dashboard/post/{{id}}">
-        <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
-            {{title}}
-            <span class="badge badge-primary badge-pill">{{format_date date_created}}</span>
-        </li>
-    </a>
-</ul>
+<a href="/dashboard/post/{{id}}">
+    <li class="list-group-item d-flex justify-content-between align-items-center mt-2" id="user-dashboard-post-list">
+        {{title}}
+        <span class="badge badge-primary badge-pill">{{format_date date_created}}</span>
+    </li>
+</a>
+
 
 {{!-- <div class="card">
     <div class="card-header">
