@@ -36,6 +36,12 @@ nav a:hover {
   background-color: #3d1710;
 }
 
+#create-new-post-btn {
+  position: absolute;
+  bottom: 3%;
+  left: 45%;
+}
+
 /* :root {
   --primary: #3d5852;
   --secondary: #86938f;
