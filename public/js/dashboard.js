@@ -1,7 +1,7 @@
 const createNewPostBtnHandler = async (event) => {
   event.preventDefault();
 
-  var element = document.getElementById("create-post-form");
+  var element = document.getElementById("create-post-div");
   element.classList.remove("d-none");
 };
 
