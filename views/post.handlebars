@@ -22,21 +22,24 @@
     <li class="list-group-item">
         <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{comment.content}}</h5>
-            <small> <span class="badge badge-primary badge-pill">Posted by <cite>{{comment.user.username}}</cite> on
-                    {{format_date
-                    comment.date_created}}</span></small>
+            <small> <span class="badge badge-primary badge-pill">Posted by <cite>{{comment.user.username}}</cite>
+                    on {{format_date comment.date_created}}</span>
+            </small>
         </div>
     </li>
     {{/each}}
 </ul>
 {{/if}}
 
+{{#if logged_in}}
 <div class="input-group input-group-lg mt-3">
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-lg">Comment</span>
     </div>
-    <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    <input type="text" class="form-control" id="comment-text-field" data-postid="{{id}}">
     <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button">Add</button>
+        <button class="btn btn-outline-secondary" id="add-comment-btn" type="button">Add</button>
     </div>
 </div>
+<script src="/js/add-comment.js"></script>
+{{/if}}

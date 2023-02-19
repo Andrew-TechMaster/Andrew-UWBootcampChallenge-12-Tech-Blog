@@ -1,11 +1,11 @@
 <h1>Dashboard Work!</h1>
 
 {{#each posts as |uerPost| }}
-{{> dashboard-post-card}}
+{{> dashboard-post-list}}
 {{/each}}
 
 
-<div class="card text-center d-none" id="create-post-form">
+<div class="card text-center mt-5 d-none" id="create-post-form">
     <div class="card-header py-4">
         Create New Post
     </div>
@@ -29,7 +29,7 @@
     </div> --}}
 </div>
 
-<div class="text-center" id="create-new-post-btn">
+<div class="text-center mt-5" id="create-new-post-btn">
     <button type="button" class="btn btn-primary btn-lg">Create New Post</button>
 </div>
 
