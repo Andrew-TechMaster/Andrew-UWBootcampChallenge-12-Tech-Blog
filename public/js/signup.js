@@ -1,3 +1,4 @@
+// {==================== Signup | POST [api/user/signup] | script for signup.handlebars ====================}
 const signupFormHandler = async (event) => {
   event.preventDefault();
 

@@ -1,3 +1,4 @@
+// {==================== hide or show form | script for dashboard.handlebars ====================}
 const createNewPostBtnHandler = async (event) => {
   event.preventDefault();
 
@@ -5,6 +6,7 @@ const createNewPostBtnHandler = async (event) => {
   element.classList.remove("d-none");
 };
 
+// {==================== Add post | POST [api/post] | script for dashboard.handlebars ====================}
 const submitFormHandler = async (event) => {
   event.preventDefault();
 

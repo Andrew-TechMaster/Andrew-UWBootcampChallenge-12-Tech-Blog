@@ -1,10 +1,12 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+// {==================== Route to get the one post | GET [api/user/login] ====================}
 router.get("/login", async (req, res) => {
   res.send("This is route /api/user/login");
 });
 
+// {==================== Route to login and create session & cookie | POST [api/user/login] | called at public/js/login.js ====================}
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -18,6 +20,7 @@ router.post("/login", async (req, res) => {
 
     const validPassword = await userData.checkPassword(req.body.password);
 
+    // ????????????why seed data cannot be verified??????????
     if (!validPassword) {
       // console.log(userData);
       // console.log(userData.dataValues.password);
@@ -42,6 +45,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// {==================== Route to signup (save at User tables) and create session | POST [api/user/signup] | called at public/js/signup.js ====================}
 router.post("/signup", async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -57,6 +61,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+// {==================== Route to logout and destroy session | POST [api/user/logout] ====================}
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

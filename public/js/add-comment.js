@@ -1,3 +1,4 @@
+// {==================== create new comment | script for post.handlebars ====================}
 const createNewCommentBtnHandler = async (event) => {
   event.preventDefault();
 
@@ -17,7 +18,7 @@ const createNewCommentBtnHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the same post page?...
+      // If successful, redirect the browser to the same post page (post.handlebars)
       document.location.replace(`/post/${post_id}`);
       return;
     } else {

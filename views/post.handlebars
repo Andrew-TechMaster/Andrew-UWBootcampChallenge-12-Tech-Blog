@@ -1,12 +1,11 @@
-<h1>Post Works!</h1>
-
+{{!-- <h1>Post Works!</h1> --}}
 <div class="card text-center">
     <div class="card-header">
         {{!-- header --}}
         {{title}}
     </div>
     <div class="card-body">
-        {{!-- <h5 class="card-title">Special title treatment</h5> --}}
+        {{!-- content --}}
         <p class="card-text">{{content}}</p>
     </div>
     <div class="card-footer text-muted">
@@ -22,8 +21,10 @@
     <li class="list-group-item">
         <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{comment.content}}</h5>
-            <small> <span class="badge badge-primary badge-pill">Posted by <cite>{{comment.user.username}}</cite>
-                    on {{format_date comment.date_created}}</span>
+            <small>
+                <span class="badge badge-primary badge-pill">
+                    Posted by <cite>{{comment.user.username}}</cite> on {{format_date comment.date_created}}
+                </span>
             </small>
         </div>
     </li>

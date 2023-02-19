@@ -1,19 +1,15 @@
 const router = require("express").Router();
 const { Post } = require("../../models");
 
-// route to create/add a post
+// {==================== Route to create/add a post | POST [api/post] | called at public/js/dashboard.js ====================}
 router.post("/", async (req, res) => {
   try {
     const postData = await Post.create({
+      // ...req.body,
       title: req.body.title,
       content: req.body.content,
       user_id: req.session.user_id,
     });
-
-    // const newProject = await Project.create({
-    //   ...req.body,
-    //   user_id: req.session.user_id,
-    // });
 
     res.status(200).json(postData);
   } catch (err) {
@@ -21,6 +17,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// {==================== Route to update a post | PUT [api/post/:id] | called at public/js/modify-post.js ====================}
 router.put("/:id", async (req, res) => {
   try {
     const post = await Post.update(
@@ -40,6 +37,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+// {==================== Route to delete a post | DELETE [api/post/:id] | called at public/js/modify-post.js ====================}
 // withAuth later...
 router.delete("/:id", async (req, res) => {
   try {

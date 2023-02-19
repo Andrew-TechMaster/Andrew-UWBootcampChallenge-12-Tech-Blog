@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Comment } = require("../../models");
 
-// route to create/add a comment
+// {==================== Route to create/add a comment | POST [api/comment] | called at public/js/add-comment.js ====================}
 router.post("/", async (req, res) => {
   try {
     const postData = await Comment.create({

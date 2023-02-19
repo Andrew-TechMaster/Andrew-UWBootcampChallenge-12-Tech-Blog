@@ -23,11 +23,7 @@
         <div class="navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link active" href="/">Home</a>
-            {{!-- <a class="nav-link" href="/dashboard">Dashboard</a>
-            <a class="nav-link" href="/login">Login</a>
-            <a class="nav-link" href="#">Logout</a> --}}
-
-            <!-- Conditionally render login or logout links -->
+            <!-- Conditionally render login, logout, and dashboard -->
             {{#if logged_in}}
             <a class="nav-link" href="/dashboard">Dashboard</a>
             <button id="logout">Logout</button>

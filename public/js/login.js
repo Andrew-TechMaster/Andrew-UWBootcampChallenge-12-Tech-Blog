@@ -1,3 +1,4 @@
+// {==================== Login | POST [api/user/login] | script for login.handlebars ====================}
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
