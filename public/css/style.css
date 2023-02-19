@@ -37,9 +37,9 @@ nav a:hover {
 }
 
 #create-new-post-btn {
-  position: absolute;
+  /* position: absolute;
   bottom: 3%;
-  left: 45%;
+  left: 45%; */
 }
 
 /* :root {
