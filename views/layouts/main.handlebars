@@ -10,17 +10,14 @@
 
 <body>
   <div class="flex-column justify-space-around">
+
+    {{!-- NavBar --}}
     <nav class="navbar navbar-expand-lg myNavbarSetting py-4">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
           <img src="/images/icon.png" width="30" height="30" class="d-inline-block align-top">
           Tech Blog
         </a>
-        {{!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button> --}}
         <div class="navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link active" href="/">Home</a>
@@ -35,7 +32,33 @@
         </div>
       </div>
     </nav>
+    <nav class="navbar navbar-expand-lg myNavbarSetting">
+      {{#if isHomeRoute}}
+      <h3>The Tech Blog</h3>
+      {{/if}}
 
+      {{#if isDashboardRoute}}
+      <h3>Your Dashboard</h3>
+      {{/if}}
+
+      {{#if isGetPostByIdRoute}}
+      <h3>View Blog Post</h3>
+      {{/if}}
+
+      {{#if isGetModifiedFormRoute}}
+      <h3>Edit Your Post</h3>
+      {{/if}}
+
+      {{#if isLoginFormRoute}}
+      <h3>Please Log In to Access Your Account</h3>
+      {{/if}}
+
+      {{#if isSignUpFormRoute}}
+      <h3>Welcome to our Website - Join Us and Unlock Exclusive Benefits!</h3>
+      {{/if}}
+    </nav>
+
+    {{!-- Main Content | {{{body}}} is a placeholder --}}
     <main class="container container-fluid mt-5">
       {{{ body }}}
     </main>

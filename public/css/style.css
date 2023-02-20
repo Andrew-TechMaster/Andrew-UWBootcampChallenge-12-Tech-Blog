@@ -14,6 +14,15 @@
   background-color: #3d1710;
 }
 
+.myNavbarSetting h3 {
+  color: #3d1710;
+  background-color: #abf7b1;
+  border-radius: var(--border-radius);
+  position: relative;
+  left: 2%;
+  box-shadow: 5px 7px #888888;
+}
+
 a:visited {
   color: inherit;
 }

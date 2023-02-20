@@ -19,10 +19,12 @@ router.get("/", async (req, res) => {
     console.log("------------------");
     console.log(posts);
     res.status(200).json(postData);
+    res.status(200).json(req.originalUrl,);
     */
     res.render("homepage", {
       posts,
       logged_in: req.session.logged_in,
+      isHomeRoute: req.originalUrl === "/",
     });
   } catch (err) {
     res.status(500).json(err);
@@ -49,7 +51,11 @@ router.get("/post/:id", async (req, res) => {
     console.log(post);
     res.status(200).json(postData);
     */
-    res.render("post", { ...post, logged_in: req.session.logged_in });
+    res.render("post", {
+      ...post,
+      logged_in: req.session.logged_in,
+      isGetPostByIdRoute: req.originalUrl === `/post/${req.params.id}`,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -76,6 +82,7 @@ router.get(
       res.render("dashboard", {
         ...user,
         logged_in: true,
+        isDashboardRoute: req.originalUrl === "/dashboard",
       });
     } catch (err) {
       res.status(500).json(err);
@@ -104,7 +111,12 @@ router.get(
       }
       const post = postData.get({ plain: true });
 
-      res.render("modify-post", { ...post, logged_in: req.session.logged_in });
+      res.render("modify-post", {
+        ...post,
+        logged_in: req.session.logged_in,
+        isGetModifiedFormRoute:
+          req.originalUrl === `/dashboard/post/${req.params.id}`,
+      });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -120,12 +132,16 @@ router.get("/login", (req, res) => {
   }
 
   // Otherwise, render the 'login' template
-  res.render("login");
+  res.render("login", {
+    isLoginFormRoute: req.originalUrl === `/login`,
+  });
 });
 
 // {==================== Route to get signup form | GET [baseUrl/signup] | signup.handlebars ====================}
 router.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("signup", {
+    isSignUpFormRoute: req.originalUrl === `/signup`,
+  });
 });
 
 module.exports = router;
