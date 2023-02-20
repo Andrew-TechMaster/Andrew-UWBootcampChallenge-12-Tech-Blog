@@ -83,6 +83,7 @@ router.get(
         ...user,
         logged_in: true,
         isDashboardRoute: req.originalUrl === "/dashboard",
+        loggedInUserName: user.username,
       });
     } catch (err) {
       res.status(500).json(err);
