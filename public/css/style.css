@@ -54,6 +54,12 @@ nav a:hover {
   background-color: #3d1710;
 }
 
+.card-header span {
+  position: relative;
+  left: 40%;
+  cursor: pointer;
+}
+
 #create-new-post-btn {
   /* position: absolute;
   bottom: 3%;

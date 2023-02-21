@@ -1,9 +1,17 @@
-// {==================== hide or show form | script for dashboard.handlebars ====================}
+// {==================== show form | script for dashboard.handlebars ====================}
 const createNewPostBtnHandler = async (event) => {
   event.preventDefault();
 
   var element = document.getElementById("create-post-div");
   element.classList.remove("d-none");
+};
+
+// {==================== show form | script for dashboard.handlebars ====================}
+const hideFormHandler = async (event) => {
+  event.preventDefault();
+
+  var element = document.getElementById("create-post-div");
+  element.classList.add("d-none");
 };
 
 // {==================== Add post | POST [api/post] | script for dashboard.handlebars ====================}
@@ -34,6 +42,8 @@ const submitFormHandler = async (event) => {
 document
   .querySelector("#create-new-post-btn")
   .addEventListener("click", createNewPostBtnHandler);
+
+document.querySelector("#hideIcon").addEventListener("click", hideFormHandler);
 
 document
   .querySelector("#create-post-form")
