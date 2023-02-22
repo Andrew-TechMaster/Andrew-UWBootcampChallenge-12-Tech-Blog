@@ -19,7 +19,10 @@ const loginFormHandler = async (event) => {
       document.location.replace("/dashboard");
     } else {
       // console.log(response);
-      alert(response.statusText);
+      // alert(response.statusText);
+      alert(
+        "Invalid Login Credentials. Please Check Your Username and Password and Try Again."
+      );
     }
   }
 };

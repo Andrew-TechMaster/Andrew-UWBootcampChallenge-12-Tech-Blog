@@ -25,7 +25,8 @@ const updatePostHandler = async (event) => {
       document.location.replace(`/post/${id}`);
     } else {
       // console.log(response);
-      alert(response.statusText);
+      // alert(response.statusText);
+      alert("You don't have permission to edit this post.");
     }
   }
 };

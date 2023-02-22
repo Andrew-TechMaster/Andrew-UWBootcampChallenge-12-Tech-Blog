@@ -29,9 +29,15 @@ router.put("/:id", withAuth, async (req, res) => {
       {
         where: {
           id: req.params.id,
+          user_id: req.session.user_id,
         },
       }
     );
+
+    if (post[0] === 0) {
+      res.status(404).json({ message: "error happened!" });
+      return;
+    }
     res.status(200).json(post);
   } catch (err) {
     res.status(500).json(err);

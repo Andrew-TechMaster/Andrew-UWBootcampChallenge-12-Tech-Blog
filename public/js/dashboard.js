@@ -6,7 +6,7 @@ const createNewPostBtnHandler = async (event) => {
   element.classList.remove("d-none");
 };
 
-// {==================== show form | script for dashboard.handlebars ====================}
+// {==================== hide form | script for dashboard.handlebars ====================}
 const hideFormHandler = async (event) => {
   event.preventDefault();
 
