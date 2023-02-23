@@ -19,11 +19,11 @@ router.post("/login", async (req, res) => {
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
-    const validPasswordForSeed = await (req.body.password ===
-      userData.dataValues.password);
+    // const validPasswordForSeed = await (req.body.password ===
+    //   userData.dataValues.password);
 
-    // ????????????why seed data cannot be verified??????????
-    if (!validPassword && !validPasswordForSeed) {
+    // if (!validPassword && !validPasswordForSeed) {
+    if (!validPassword) {
       // console.log(userData);
       // console.log(userData.dataValues.password);
       // console.log(req.body.password);

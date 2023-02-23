@@ -21,6 +21,11 @@ const commentData = [
     user_id: 3,
     post_id: 2,
   },
+  // {
+  //   content: "Node.js was written initially by Ryan Dahl in 2009...",
+  //   user_id: 1,
+  //   post_id: 4,
+  // },
 ];
 
 const seedComment = () => Comment.bulkCreate(commentData);
