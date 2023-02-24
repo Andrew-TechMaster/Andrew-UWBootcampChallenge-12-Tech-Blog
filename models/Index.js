@@ -2,6 +2,8 @@ const User = require("./User");
 const Post = require("./Post");
 const Comment = require("./Comment");
 
+// change file to lower case
+
 // {========== To create a One-To-Many relationship, the "hasMany" and "belongsTo" associations are used together ==========}
 // One(User) - To - Many(Post)
 
